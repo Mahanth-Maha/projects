@@ -1,0 +1,665 @@
+<!--
+================================================================================
+PREMIUM PROJECTS PAGE - Minimal Luxury Design with Dynamic Sidebar
+================================================================================
+Auto-generated from projects-data.yaml
+Inspired by luxury brand aesthetics: ZARA, Dior, Rolex
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      background: #ffffff;
+      font-family: 'Poppins', sans-serif;
+      color: #000;
+      line-height: 1.6;
+    }
+
+    /* Main Layout */
+    .main-wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: #f9f9f9;
+      border-right: 1px solid #e8e8e8;
+      padding: 2rem 0;
+      position: fixed;
+      height: 100vh;
+      overflow-y: auto;
+      top: 0;
+      left: 0;
+    }
+
+    .sidebar-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #999;
+      padding: 1rem 1.5rem 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      margin: 0;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 0.7rem 1.5rem;
+      color: #666;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.25s ease;
+      border-left: 2px solid transparent;
+      font-weight: 400;
+    }
+
+    .sidebar-nav a:hover {
+      color: #000;
+      background: #f0f0f0;
+    }
+
+    .sidebar-nav a.active {
+      color: #000;
+      background: #f0f0f0;
+      border-left: 2px solid #000;
+      font-weight: 600;
+    }
+
+    /* Content Area */
+    .content-wrapper {
+      margin-left: 220px;
+      width: calc(100% - 220px);
+    }
+
+    /* Header Section */
+    .header {
+      padding: 3.5rem 3rem 2.5rem;
+      text-align: center;
+      border-bottom: 1px solid #e8e8e8;
+      background: #ffffff;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #000;
+      margin-bottom: 0.5rem;
+    }
+
+    .header p {
+      font-size: 0.95rem;
+      color: #666;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      gap: 1.8rem;
+    }
+
+    /* Project Card */
+    .project-card {
+      padding: 1.8rem;
+      background: #ffffff;
+      border: 1px solid #f0f0f0;
+      border-radius: 0;
+      transition: all 0.35s ease;
+      position: relative;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #000;
+      width: 0;
+      transition: width 0.35s ease;
+    }
+
+    .project-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      border-color: #d8d8d8;
+    }
+
+    .project-card:hover::before {
+      width: 40px;
+    }
+
+    .project-icon {
+      font-size: 1.5rem;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    /* Keywords/Tags */
+    .keywords {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .keyword {
+      padding: 0.3rem 0.85rem;
+      background: #f8f8f8;
+      color: #444;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      border: 1px solid #efefef;
+      border-radius: 0;
+    }
+
+    /* Meta Items */
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+      color: #666;
+      font-weight: 400;
+    }
+
+    .meta-item i {
+      color: #999;
+      font-size: 0.8rem;
+    }
+
+    /* Description */
+    .project-description {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    /* Links Container */
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      padding-top: 1rem;
+      border-top: 1px solid #f5f5f5;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.2rem;
+      background: #000;
+      color: #fff;
+      border: 1px solid #000;
+      border-radius: 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .link-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .link-btn i {
+      font-size: 0.85rem;
+    }
+
+    /* Status Badge */
+    .project-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.8rem;
+      background: #f5f5f5;
+      color: #444;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    .project-status i {
+      font-size: 0.75rem;
+    }
+
+    .project-status.completed {
+      background: #f0f0f0;
+    }
+
+    .project-status.in-progress {
+      background: #fafafa;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      border-top: 1px solid #f0f0f0;
+      color: #999;
+      font-size: 0.85rem;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    /* Scrollbar Styling */
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #ddd;
+      border-radius: 3px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: #999;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .sidebar {
+        width: 180px;
+      }
+
+      .content-wrapper {
+        margin-left: 180px;
+        width: calc(100% - 180px);
+      }
+
+      .header h1 { font-size: 2.2rem; }
+      .container { padding: 2.5rem 1.5rem; }
+      .projects-grid { gap: 1.5rem; }
+      .project-card { padding: 1.5rem; }
+    }
+
+    @media (max-width: 768px) {
+      .main-wrapper {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #e8e8e8;
+        padding: 1rem 0;
+      }
+
+      .content-wrapper {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      .sidebar-nav {
+        display: flex;
+        overflow-x: auto;
+        gap: 0;
+        padding: 0 1rem;
+      }
+
+      .sidebar-nav li {
+        white-space: nowrap;
+      }
+
+      .sidebar-nav a {
+        padding: 0.5rem 1rem;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+      }
+
+      .sidebar-nav a.active {
+        border-left: none;
+        border-bottom: 2px solid #000;
+      }
+
+      .header {
+        padding: 2.5rem 1.5rem 1.5rem;
+      }
+
+      .header h1 { font-size: 1.8rem; }
+      .header p { font-size: 0.9rem; }
+      .container { padding: 2rem 1rem; }
+      .projects-grid { gap: 1.2rem; }
+      .project-card { padding: 1.2rem; }
+      .keywords { gap: 0.4rem; }
+      .keyword { font-size: 0.75rem; padding: 0.25rem 0.7rem; }
+      .link-btn { padding: 0.5rem 1rem; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-wrapper">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-title">Projects</div>
+      <nav class="sidebar-nav" id="sidebarNav">
+        <li><a href="#project-3" class="nav-link active">Machine Unlearning</a></li>
+        <li><a href="#project-1" class="nav-link">GenAI</a></li>
+        <li><a href="#project-2" class="nav-link">Zero-Shot Unlearning</a></li>
+        <li><a href="#project-4" class="nav-link">Game Theory</a></li>
+        <li><a href="#project-5" class="nav-link">Image Inpainting</a></li>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="content-wrapper">
+      
+      <!-- Header -->
+      <div class="header">
+        <h1>Projects</h1>
+        <p>Research & technical work</p>
+      </div>
+
+      <!-- Container -->
+      <div class="container">
+        <div class="projects-grid">
+
+          <!-- M.Tech Research: Machine Unlearning in Vision Transformer -->
+          <div class="project-card" id="project-3">
+            <!-- Row 1: Title left, Status, Date right -->
+            <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
+              <a href="https://mahanthyalla.in/Unlearn/" target="_blank" style="font-family:'Playfair Display',serif;font-size:1.26rem;font-weight:700;color:#1a2233;text-decoration:none;display:flex;align-items:center;flex:1;">
+                <span class="project-icon"><i class="fa-solid fa-eraser"></i></span>
+                <span style="margin-left:0.7rem;">M.Tech Research: Machine Unlearning in Vision Transformer</span>
+              </a>
+              <span class="project-status in-progress" style="margin-left:1.1rem;"><i class="fa-solid fa-spinner"></i> In Progress</span>
+              <span style="margin-left:1.5rem;min-width:80px;text-align:right;font-size:0.97rem;color:#888;">2025–Present</span>
+            </div>
+
+            <!-- Row 2: Keyword tags left, Key insights right -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+              <div class="keywords" style="display:flex;gap:0.5rem;">
+                <span class="keyword">Unlearning</span>
+              <span class="keyword">ViT</span>
+              <span class="keyword">ZeroShot</span>
+              </div>
+              <div style="display:flex;gap:0.6rem;">
+                <span class="meta-item"><i class="fa-solid fa-zap"></i> Performance</span>
+              <span class="meta-item"><i class="fa-solid fa-lock"></i> Privacy</span>
+              <span class="meta-item"><i class="fa-solid fa-bolt"></i> Fast Convergence</span>
+              </div>
+            </div>
+
+            <!-- Row 3-4: Text about project -->
+            <div class="project-description" style="margin-bottom:1rem;">
+              Efficient unlearning framework with error-maximizing noise generation.
+Fast unlearning without full retraining while maintaining optimal performance.
+Designed for GDPR compliance and model privacy preservation.
+            </div>
+
+            <!-- Row 5: Project webpage, Report, GitHub -->
+            <div class="project-links" style="display:flex;gap:0.9rem;">
+              <a href="https://mahanthyalla.in/Unlearn/" class="link-btn" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+            <a href="https://github.com/Mahanth-Maha/Unlearn" class="link-btn" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+
+
+          <!-- GenAI: LoRA Fine-tuning for Code Generation -->
+          <div class="project-card" id="project-1">
+            <!-- Row 1: Title left, Status, Date right -->
+            <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
+              <a href="https://mahanthyalla.in/GenAI/" target="_blank" style="font-family:'Playfair Display',serif;font-size:1.26rem;font-weight:700;color:#1a2233;text-decoration:none;display:flex;align-items:center;flex:1;">
+                <span class="project-icon"><i class="fa-solid fa-brain"></i></span>
+                <span style="margin-left:0.7rem;">GenAI: LoRA Fine-tuning for Code Generation</span>
+              </a>
+              <span class="project-status in-progress" style="margin-left:1.1rem;"><i class="fa-solid fa-spinner"></i> In Progress</span>
+              <span style="margin-left:1.5rem;min-width:80px;text-align:right;font-size:0.97rem;color:#888;">2024–Present</span>
+            </div>
+
+            <!-- Row 2: Keyword tags left, Key insights right -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+              <div class="keywords" style="display:flex;gap:0.5rem;">
+                <span class="keyword">LoRA</span>
+              <span class="keyword">PEFT</span>
+              <span class="keyword">NLP</span>
+              <span class="keyword">LLM</span>
+              <span class="keyword">GenAI</span>
+              </div>
+              <div style="display:flex;gap:0.6rem;">
+                <span class="meta-item"><i class="fa-solid fa-trophy"></i> 93.3% Success</span>
+              <span class="meta-item"><i class="fa-solid fa-flask"></i> Ablation Study</span>
+              <span class="meta-item"><i class="fa-solid fa-code"></i> Qwen 2.5 7B</span>
+              </div>
+            </div>
+
+            <!-- Row 3-4: Text about project -->
+            <div class="project-description" style="margin-bottom:1rem;">
+              Systematic exploration of LoRA hyperparameters for fine-tuning the Qwen 2.5 7B model.
+Detailed ablation studies on PEFT and LoRA settings for efficient, scalable Python code generation.
+Achieved up to <b>93.34% execution success rate</b> using the flytech/python-codes-25k dataset.
+            </div>
+
+            <!-- Row 5: Project webpage, Report, GitHub -->
+            <div class="project-links" style="display:flex;gap:0.9rem;">
+              <a href="https://mahanthyalla.in/GenAI/" class="link-btn" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+            <a href="https://mahanthyalla.in/GenAI/notebooks/results/LoRA_Python_code_FT_Report.pdf" class="link-btn" target="_blank"><i class="fa-solid fa-file"></i> Report</a>
+            <a href="https://github.com/Mahanth-Maha/GenAI" class="link-btn" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+
+
+          <!-- Zero-Shot Machine Unlearning -->
+          <div class="project-card" id="project-2">
+            <!-- Row 1: Title left, Status, Date right -->
+            <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
+              <a href="https://mahanthyalla.in/ZeroShotUnlearning/" target="_blank" style="font-family:'Playfair Display',serif;font-size:1.26rem;font-weight:700;color:#1a2233;text-decoration:none;display:flex;align-items:center;flex:1;">
+                <span class="project-icon"><i class="fa-solid fa-user-secret"></i></span>
+                <span style="margin-left:0.7rem;">Zero-Shot Machine Unlearning</span>
+              </a>
+              <span class="project-status completed" style="margin-left:1.1rem;"><i class="fa-solid fa-check"></i> Completed</span>
+              <span style="margin-left:1.5rem;min-width:80px;text-align:right;font-size:0.97rem;color:#888;">2024</span>
+            </div>
+
+            <!-- Row 2: Keyword tags left, Key insights right -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+              <div class="keywords" style="display:flex;gap:0.5rem;">
+                <span class="keyword">Unlearning</span>
+              <span class="keyword">GDPR</span>
+              <span class="keyword">Zero-Shot</span>
+              <span class="keyword">Privacy</span>
+              <span class="keyword">ML Safety</span>
+              </div>
+              <div style="display:flex;gap:0.6rem;">
+                <span class="meta-item"><i class="fa-solid fa-check-double"></i> ≈0% Forget Acc</span>
+              <span class="meta-item"><i class="fa-solid fa-shield"></i> Data-Free</span>
+              <span class="meta-item"><i class="fa-solid fa-database"></i> ImageNet Scale</span>
+              </div>
+            </div>
+
+            <!-- Row 3-4: Text about project -->
+            <div class="project-description" style="margin-bottom:1rem;">
+              Data-free class impressions framework for selective model forgetting.
+Achieves ≈0% accuracy on forget classes without original training data while maintaining performance.
+Proven effectiveness from MNIST to ImageNet across LeNet5 to ResNet50.
+            </div>
+
+            <!-- Row 5: Project webpage, Report, GitHub -->
+            <div class="project-links" style="display:flex;gap:0.9rem;">
+              <a href="https://mahanthyalla.in/ZeroShotUnlearning/" class="link-btn" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+            <a href="https://mahanthyalla.in/ZeroShotUnlearning/WhitePaper_ZeroShotUnlearning.pdf" class="link-btn" target="_blank"><i class="fa-solid fa-file"></i> Report</a>
+            <a href="https://github.com/Mahanth-Maha/ZeroShotUnlearning" class="link-btn" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+
+
+          <!-- Game Theory Mini Project 2025 -->
+          <div class="project-card" id="project-4">
+            <!-- Row 1: Title left, Status, Date right -->
+            <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
+              <a href="https://mahanthyalla.in/GameTheory2025MiniProject/" target="_blank" style="font-family:'Playfair Display',serif;font-size:1.26rem;font-weight:700;color:#1a2233;text-decoration:none;display:flex;align-items:center;flex:1;">
+                <span class="project-icon"><i class="fa-solid fa-sitemap"></i></span>
+                <span style="margin-left:0.7rem;">Game Theory Mini Project 2025</span>
+              </a>
+              <span class="project-status completed" style="margin-left:1.1rem;"><i class="fa-solid fa-check"></i> Completed</span>
+              <span style="margin-left:1.5rem;min-width:80px;text-align:right;font-size:0.97rem;color:#888;">2024</span>
+            </div>
+
+            <!-- Row 2: Keyword tags left, Key insights right -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+              <div class="keywords" style="display:flex;gap:0.5rem;">
+                <span class="keyword">Game Theory</span>
+              <span class="keyword">Nash Eq.</span>
+              <span class="keyword">Coalition</span>
+              <span class="keyword">Modeling</span>
+              </div>
+              <div style="display:flex;gap:0.6rem;">
+                <span class="meta-item"><i class="fa-solid fa-chess"></i> Strategic Modeling</span>
+              <span class="meta-item"><i class="fa-solid fa-chart-line"></i> Cooperative Game Theory</span>
+              </div>
+            </div>
+
+            <!-- Row 3-4: Text about project -->
+            <div class="project-description" style="margin-bottom:1rem;">
+              Strategic game analysis and mathematical modeling using game theoretic principles.
+Exploration of Nash equilibrium, strategic interactions, and comprehensive game simulations.
+            </div>
+
+            <!-- Row 5: Project webpage, Report, GitHub -->
+            <div class="project-links" style="display:flex;gap:0.9rem;">
+              <a href="https://mahanthyalla.in/GameTheory2025MiniProject/" class="link-btn" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+            <a href="https://mahanthyalla.in/GameTheory2025MiniProject/Report/VCM_in_AS_Yalla_Mahanth.pdf" class="link-btn" target="_blank"><i class="fa-solid fa-file"></i> Report</a>
+            <a href="https://github.com/Mahanth-Maha/GameTheory2025MiniProject" class="link-btn" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+          </div>
+
+
+          <!-- Image Inpainting -->
+          <div class="project-card" id="project-5">
+            <!-- Row 1: Title left, Status, Date right -->
+            <div style="display:flex;align-items:center;margin-bottom:0.5rem;">
+              <a href="https://mahanthyalla.in/Inpainting/" target="_blank" style="font-family:'Playfair Display',serif;font-size:1.26rem;font-weight:700;color:#1a2233;text-decoration:none;display:flex;align-items:center;flex:1;">
+                <span class="project-icon"><i class="fa-solid fa-image"></i></span>
+                <span style="margin-left:0.7rem;">Image Inpainting</span>
+              </a>
+              <span class="project-status completed" style="margin-left:1.1rem;"><i class="fa-solid fa-check"></i> Completed</span>
+              <span style="margin-left:1.5rem;min-width:80px;text-align:right;font-size:0.97rem;color:#888;">2024</span>
+            </div>
+
+            <!-- Row 2: Keyword tags left, Key insights right -->
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.5rem;">
+              <div class="keywords" style="display:flex;gap:0.5rem;">
+                <span class="keyword">Inpainting</span>
+              <span class="keyword">DDPMs</span>
+              <span class="keyword">CV</span>
+              <span class="keyword">Image Proc.</span>
+              <span class="keyword">Deep Learning</span>
+              </div>
+              <div style="display:flex;gap:0.6rem;">
+                <span class="meta-item"><i class="fa-solid fa-paintbrush"></i> Seamless Restoration</span>
+              <span class="meta-item"><i class="fa-solid fa-microchip"></i> DDPM-based</span>
+              </div>
+            </div>
+
+            <!-- Row 3-4: Text about project -->
+            <div class="project-description" style="margin-bottom:1rem;">
+              Deep learning-based image inpainting for content restoration and reconstruction.
+Leverages DDPM and advanced architectures for natural and seamless image completion.
+            </div>
+
+            <!-- Row 5: Project webpage, Report, GitHub -->
+            <div class="project-links" style="display:flex;gap:0.9rem;">
+              <a href="https://mahanthyalla.in/Inpainting/" class="link-btn" target="_blank"><i class="fa-solid fa-globe"></i> Project</a>
+            <a href="https://github.com/Mahanth-Maha/Inpainting" class="link-btn" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a href="https://github.com/Mahanth-Maha/Inpainting#demo" class="link-btn" target="_blank"><i class="fa-solid fa-play"></i> Demo</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        Auto-generated from projects-data.yaml • Edit YAML and re-run generator to update
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Dynamic sidebar highlighting
+    const navLinks = document.querySelectorAll('.nav-link');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    // Intersection Observer for automatic highlighting
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const projectId = entry.target.id;
+          navLinks.forEach((link) => {
+            link.classList.remove('active');
+          });
+          const activeLink = document.querySelector(`a[href="#${projectId}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    }, observerOptions);
+
+    projectCards.forEach((card) => {
+      observer.observe(card);
+    });
+
+    // Smooth scroll on sidebar click
+    navLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetCard = document.getElementById(targetId);
+        if (targetCard) {
+          targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
